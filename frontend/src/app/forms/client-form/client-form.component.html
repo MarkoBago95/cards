@@ -1,0 +1,26 @@
+<p-card header="Novi klijent" styleClass="p-mb-3">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="p-fluid">
+    <div class="p-field">
+      <label for="firstName">Ime</label>
+      <input pInputText id="firstName" formControlName="firstName" />
+    </div>
+    <div class="p-field">
+      <label for="lastName">Prezime</label>
+      <input pInputText id="lastName" formControlName="lastName" />
+    </div>
+    <div class="p-field">
+      <label for="oib">OIB</label>
+      <input pInputText id="oib" maxlength="11" formControlName="oib" />
+    </div>
+    <div class="p-field">
+      <label for="status">Status</label>
+      <p-dropdown id="status"
+                  formControlName="status"
+                  [options]="statuses"
+                  optionLabel="label"
+                  optionValue="value"></p-dropdown>
+    </div>
+    <button pButton type="submit" label="Spremi" [disabled]="form.invalid"></button>
+  </form>
+  <p style="margin-top:1rem">{{ msg }}</p>
+</p-card>

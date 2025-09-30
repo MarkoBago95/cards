@@ -1,0 +1,18 @@
+<p-card header="Pretraga klijenta">
+  <div class="p-inputgroup">
+    <input pInputText [(ngModel)]="oib" placeholder="OIB" maxlength="11">
+    <button pButton label="Pretraži" (click)="search()"></button>
+    <button pButton label="Obriši" class="p-button-danger" (click)="remove()" [disabled]="!oib"></button>
+  </div>
+
+  <div *ngIf="result" class="p-mt-3">
+    <p>
+      <b>{{ result.firstName }} {{ result.lastName }}</b> — {{ result.oib }}
+      — Status: <b>{{ result.status }}</b>
+    </p>
+    <button pButton label="Proslijedi na API" (click)="forward()"></button>
+  </div>
+
+  <p class="p-mt-3">{{ msg }}</p>
+</p-card>
+
