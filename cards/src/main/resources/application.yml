@@ -1,0 +1,21 @@
+﻿spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cards
+    username: cards
+    password: cards
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: cards-service
+      auto-offset-reset: earliest
+
+app:
+  external:
+    base-url: https://api.something.com/v1
+    card-request-path: /api/v1/card-request
